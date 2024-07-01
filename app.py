@@ -1,13 +1,9 @@
 import pickle
 import os
+# Determine the model path relative to the script's location
+model_path = os.path.join(os.getcwd(), 'BD NOV', 'frontend', 'knn_model.pkl')
 
-if os.path.exists(r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'):
-    model_path = r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'
-else:
-    model_path = os.path.join('frontend', 'knn_model.pkl')
-
-# Print the model path and current working directory for debugging
-print(f"Current working directory: {os.getcwd()}")
+# Print the model path for debugging
 print(f"Using model path: {model_path}")
 
 # Check if the file exists
@@ -17,6 +13,7 @@ if not os.path.exists(model_path):
 # Load the model using pickle
 with open(model_path, 'rb') as file:
     knn = pickle.load(file)
+
 
 import streamlit as st
 st.title("Airline Passenger Satisfaction")
