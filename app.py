@@ -1,17 +1,20 @@
 import pickle
 import os
 
-
-# Determine the environment and set the model path accordingly
 if os.path.exists(r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'):
     model_path = r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'
 else:
     model_path = os.path.join('frontend', 'knn_model.pkl')
 
+# Print the model path and current working directory for debugging
+print(f"Current working directory: {os.getcwd()}")
+print(f"Using model path: {model_path}")
+
 # Check if the file exists
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"The model file was not found at the path: {model_path}")
 
+# Load the model using pickle
 with open(model_path, 'rb') as file:
     knn = pickle.load(file)
 
