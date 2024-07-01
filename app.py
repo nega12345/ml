@@ -1,5 +1,19 @@
 import pickle
-knn = pickle.load(open(r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl', 'rb'))
+import os
+
+
+# Determine the environment and set the model path accordingly
+if os.path.exists(r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'):
+    model_path = r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'
+else:
+    model_path = os.path.join('models', 'knn_model.pkl')
+
+# Check if the file exists
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"The model file was not found at the path: {model_path}")
+
+with open(model_path, 'rb') as file:
+    knn = pickle.load(file)
 
 import streamlit as st
 st.title("Airline Passenger Satisfaction")
