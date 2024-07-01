@@ -1,6 +1,5 @@
 import pickle
 import os
-# Determine the model path relative to the script's location
 model_path = os.path.join(os.getcwd(), 'BD NOV', 'frontend', 'knn_model.pkl')
 
 # Print the model path for debugging
@@ -13,7 +12,6 @@ if not os.path.exists(model_path):
 # Load the model using pickle
 with open(model_path, 'rb') as file:
     knn = pickle.load(file)
-
 
 import streamlit as st
 st.title("Airline Passenger Satisfaction")
