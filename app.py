@@ -1,6 +1,7 @@
 import pickle
 import os
-model_path = os.path.join(os.getcwd(), 'BD NOV', 'frontend', 'knn_model.pkl')
+# Define the path to your model file
+model_path = "/mount/src/ml/BD NOV/frontend/knn_model.pkl"
 
 # Print the model path for debugging
 print(f"Using model path: {model_path}")
@@ -12,6 +13,7 @@ if not os.path.exists(model_path):
 # Load the model using pickle
 with open(model_path, 'rb') as file:
     knn = pickle.load(file)
+
 
 import streamlit as st
 st.title("Airline Passenger Satisfaction")
