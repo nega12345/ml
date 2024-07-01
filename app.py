@@ -6,7 +6,7 @@ import os
 if os.path.exists(r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'):
     model_path = r'C:\Users\negae\OneDrive\Desktop\BD NOV\frontend\knn_model.pkl'
 else:
-    model_path = os.path.join('models', 'knn_model.pkl')
+    model_path = os.path.join('frontend', 'knn_model.pkl')
 
 # Check if the file exists
 if not os.path.exists(model_path):
